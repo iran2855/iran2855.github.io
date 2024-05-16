@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>局部优化算法 | jp's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.2.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>局部优化算法</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-05-16T01:55:21.000Z" id="date"> 2024-05-16</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-05-16T06:44:00.249Z" id="updated"> 2024-05-16</time></div></span></div></div><hr><div id="post-content"><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Q：什么是“局部”优化算法？</p>
+<p>A：局部优化算法是一类优化算法，用于在问题的解空间中<strong>寻找局部最优解</strong>。这类算法的目标是通过迭代的方式逐步改进当前解，直到达到一个局部最优解，但<strong>并不能保证找到全局最优解</strong>。</p>
+<p>Q：什么是“局部最优解”？</p>
+<p>A：局部最优解是在搜索空间中<strong>某个特定区域内的最优解</strong>，也称作局部极小值或局部最小值。在一个优化问题中，如果算法不能够找到更优的解，则算法停留在该点，称其为局部最优解。</p>
+<p>举个例子，假设有一个目标函数 f(x)，其中 x 是一个向量或一组变量。对于一个优化问题，我们要找到使目标函数最小化或最大化的变量取值。然而，搜索空间可能非常大，搜索全局最优解可能会非常困难，甚至是不可能的。因此，某些优化算法可能会停止在具有较好目标函数值的局部最优解处。</p>
+<p>例如，在优化问题中，可能存在一组变量值 {x1​,x2​,…,xn​}，使得 f(x) 达到最小值。然而，如果算法只搜索了这组变量值周围的区域，而没有探索其他可能更优的区域，那么该算法可能会停留在这个局部最优解处。</p>
+<p>Q：为什么需要局部优化算法？</p>
+<p>A：全局搜索要记住搜索路径，必定会受到内存的限制，不适合解决超大规模问题。而在实际中，很多问题并<strong>不需要记住得到解的路径</strong>，只需要得到解。</p>
+<h1 id="初步认识局部搜索算法"><a href="#初步认识局部搜索算法" class="headerlink" title="初步认识局部搜索算法"></a>初步认识局部搜索算法</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>（以八皇后问题为例）</p class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-11-01-47-image.png'><img src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-11-01-47-image.png" title="" alt="" width="148">
+
+<ul>
+<li><p><strong>邻居状态：</strong> 与全局搜索不同，这里状态之间不再以父子相称，而是以邻里相称。<code>例如：在棋盘上每一列，随机摆放一个棋子，就算一种邻居状态。每一个邻居状态都是可以与目标状态对比的，从这点上与父子状态有区别。</code></p>
+</li>
+<li><p><strong>状态估值函数h：</strong> 用于描述一个状态是不是好的。输入当前状态，输出一个评估值。<code>例如：可能互相攻击的皇后对的数目。</code></p>
+</li>
+</ul>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>对于局部优化算法，整个问题的求解过程就是根据状态估值函数，不断从当前状态移动到估值更低（或更高）的邻居状态，直到到达目标状态的过程。</p>
+<p>因此，我们的基本思路就是，从一个初始状态出发，向更好的邻居状态移动。</p>
+<p>如果邻居都不如当前状态的评估值高，我们就来到了一个局部极值点（局部最优解）。如果全局只有一个极值点，我们就找到了要找的目标状态。</p>
+<h2 id="解空间的形状"><a href="#解空间的形状" class="headerlink" title="解空间的形状"></a>解空间的形状</h2 class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-11-25-03-image.png'><img title="" src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-11-25-03-image.png" alt="" width="244" data-align="inline">
+
+<p>在任意一个当前状态下，可以左右移动。</p>
+<p>因为算法是根据估值函数最状态进行调整，因此在这个例子中，一定是向上爬升的。所以，<strong>如果初始状态是左边那个点，就能爬到全局最优解；如果选择右边那个，就只能爬到局部最优解。</strong></p>
+<p><mark>初始点位置影响了能不能到全局最优的机值点！</mark></p>
+<h1 id="常用局部搜索算法"><a href="#常用局部搜索算法" class="headerlink" title="常用局部搜索算法"></a>常用局部搜索算法</h1><p>课上介绍了</p>
+<h2 id="爬山法-hill-climbing-steepest-ascent-最陡下降版本"><a href="#爬山法-hill-climbing-steepest-ascent-最陡下降版本" class="headerlink" title="爬山法 hill-climbing (steepest-ascent 最陡下降版本)"></a>爬山法 hill-climbing (steepest-ascent 最陡下降版本)</h2><p>爬山法（Hill Climbing）是一种基本的局部优化算法，常用于解决优化问题。它的优点是简单易实现，适用于解决一些简单的优化问题。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3 class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-12-05-31-image.png'><img title="" src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-12-05-31-image.png" alt="" width="160">
+
+<p>这个名字很形象地描述了算法的过程：每次移动，都会选择相邻节点中最好的一个（最好，指的是最陡&#x2F;评估值最优）。</p>
+<p>最终，算法会在一个山峰（或山谷，取决于状态估值函数h是越大越好还是越小越好而已。代码里面只要改一个正负号）处停下，这个山峰可能是局部最优解，也可能是全局最优解。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><strong>储存</strong></p>
+<p>该算法并不存储一棵搜索树，所以数据结构<strong>只存储当前节点</strong>和<strong>一个估值函数</strong>。</p>
+<p><strong>伪代码</strong></p>
+<p>(这个挺简单的，就是不断把当前节点更换为更优的节点)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">function HILL-CLIMBING(problem) returns a state that is a local maximum<br>    current←MAKE-NODE(problem.INITIAL-STATE)<br>    loop do<br>        neighbor←a highest-valued successor(后继) of current<br>        if neighbor.VALUE &lt; current.VALUE then return current.STATE<br>        current←neighbor<br></code></pre></td></tr></table></figure>
+
+<p><strong>问题与解决方案</strong></p>
+<p>每次爬山，到了一个局部极值点就会僵住不动。例如，到达一个局部极值的状态 h &#x3D; 1 ，即只有一对皇后可以互相攻击，而移动任何一个皇后得到的局面的 h 值都比1更高。</p>
+<p>称为<strong>陷入局部最优</strong>。</p>
+<p>解决方案是<strong>平移法</strong>，比如还是上面那个例子，我们随机选一个h&#x3D;1的另一个状态、允许皇后跳到随机的h&#x3D;1的新状态。</p class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-14-32-29-image.png'><img src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-14-32-29-image.png" title="" alt="" width="386">
+
+<p>如图，通过这样平移，我们就有可能脱离陷入局部最优的状况。</p>
+<p>但是，也有可能<strong>死循环（来回移动），设置一个上限</strong>，比如100次、若都跳不出去就放弃了<br>也就是说、我们让状态连续在状态估值函数平台上随机左右平移100次。</p>
+<p><mark>注意！随机平移只能跳出肩状平台，不能跳出平台。</mark></p>
+<h3 id="爬山法其他变种"><a href="#爬山法其他变种" class="headerlink" title="爬山法其他变种"></a>爬山法其他变种</h3><p><del>你lwx都没讲啊，先把后面的复习了吧</del></p>
+<h2 id="模拟退火算法（Simulated-annealing）"><a href="#模拟退火算法（Simulated-annealing）" class="headerlink" title="模拟退火算法（Simulated annealing）"></a>模拟退火算法（Simulated annealing）</h2><p>爬山法，只向更优邻居点移动，不会向状态估值更差的邻居移动，因此有时会陷入局部极值，因此它是不完备的。</p>
+<p>我们加入纯粹的游走算法，即等概率地向任何一个邻居移动。</p>
+<p>爬山法 + 随机游走算法 &#x3D; 高效又完备的算法。模拟退火就是这样一种算法。</p>
+<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3 class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-14-43-39-image.png'><img title="" src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-05-16-14-43-39-image.png" alt="" width="526">
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/05/11/%E7%94%A8%E6%90%9C%E7%B4%A2%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/">用搜索解决问题 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">浅若清风</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">初步认识局部搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">基本思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%A9%BA%E9%97%B4%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="toc-number">2.3.</span> <span class="toc-text">解空间的形状</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">常用局部搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1%E6%B3%95-hill-climbing-steepest-ascent-%E6%9C%80%E9%99%A1%E4%B8%8B%E9%99%8D%E7%89%88%E6%9C%AC"><span class="toc-number">3.1.</span> <span class="toc-text">爬山法 hill-climbing (steepest-ascent 最陡下降版本)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">3.1.1.</span> <span class="toc-text">解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.1.2.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1%E6%B3%95%E5%85%B6%E4%BB%96%E5%8F%98%E7%A7%8D"><span class="toc-number">3.1.3.</span> <span class="toc-text">爬山法其他变种</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%EF%BC%88Simulated-annealing%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">模拟退火算法（Simulated annealing）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">解释</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
