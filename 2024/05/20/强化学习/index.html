@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>强化学习 | jp's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.2.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>强化学习</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-05-20T12:23:10.000Z" id="date"> 2024-05-20</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-05-23T10:04:35.847Z" id="updated"> 2024-05-23</time></div></span></div></div><hr><div id="post-content"><p>（文章较长，因为加入了一些博主和网上其他大佬的理解）</p>
+<blockquote>
+<p>Q：什么是强化学习？</p>
+<p>Chatgpt： 强化学习（Reinforcement Learning）是一种机器学习的分支，旨在让智能体通过与环境的交互来学习最优策略。强化学习涉及到智能体在一个动态的环境中，通过观察状态、采取行动、接收奖励等方式，从而逐步学习如何在特定的环境下采取最佳行动以获得最大的收益。</p>
+<p>        强化学习的核心思想是基于试错学习的过程，即智能体在尝试不同的行动后，观察其获得的奖励或惩罚，并根据这些反馈信息来调整自己的策略，从而逐步优化自己的行动。</p>
+<p>        强化学习的应用非常广泛，例如在机器人控制、游戏AI、自动驾驶等领域都有重要的应用。大败柯洁的alpha go也是利用强化学习训练的。 </p>
+</blockquote>
+<h1 id="强化学习的生物学基础"><a href="#强化学习的生物学基础" class="headerlink" title="强化学习的生物学基础"></a>强化学习的生物学基础</h1><p>        强化学习的理论来自于<strong>斯金纳的操作性条件反射理论</strong>，在<strong>斯金纳箱</strong>实验中，鼠鼠被关在箱子里，当鼠鼠压下杠杆时，会奖励鼠鼠（比如释放事物）；当鼠鼠执行其他操作时（比如按了一个按钮），就会狠狠地惩罚鼠鼠（比如电击⚡）。一段时间后，鼠鼠就学会了压杠杆而不碰按钮。</p>
+<p>        这个简单的实验告诉我们：一、通过奖励和惩罚的方式可以改变智能体的行为方式；二、随机奖励可以使智能体上瘾。</p>
+<p>        可见强化学习的原理和人的学习差不多，都是通过奖惩的反馈来明白该做什么、不该做什么。可能因此，强化学习训出来的更加智能（猜想</p>
+<h1 id="强化学习的模型"><a href="#强化学习的模型" class="headerlink" title="强化学习的模型"></a>强化学习的模型</h1 class='item-img' data-src='file:///C:/Users/10195/AppData/Roaming/marktext/images/2024-05-22-21-14-45-image.png'><img title="" src="file:///C:/Users/10195/AppData/Roaming/marktext/images/2024-05-22-21-14-45-image.png" alt="" width="427">
+
+<h2 id="强化学习的三层结构"><a href="#强化学习的三层结构" class="headerlink" title="强化学习的三层结构"></a>强化学习的三层结构</h2><p>（这里是B站</p>
+<ul>
+<li><p>第一层——基本元素：</p>
+<ul>
+<li><p>**agent(智能体)**：也可以理解为“玩家”，其实就是训练的对象；</p>
+</li>
+<li><p>**environment(环境)**：agent与之交互的对象。agent在与环境的互动中进行学习；</p>
+</li>
+<li><p>**goal(目标)**：<del>就是训练的目标</del>。这个目标决定了后面采用的reward是什么。</p>
+</li>
+</ul>
+</li>
+<li><p>第二层——主要元素：</p>
+<ul>
+<li><p> state(状态)：可以理解由为除agent之外其他事物的状态。比如说王者里的地图、野怪的情况、两边的经济；围棋中棋盘上的落子情况；</p>
+</li>
+<li><p>action(行动)：agent在某个状态下的合法动作集合。</p>
+</li>
+<li><p>reward(奖励)：即某个状态下，智能体采取某个动作后得到的分数。这个分数可能是0，比如在围棋中，并不是每次落子之后都给予奖励，而是最后获胜了才给奖励。</p>
+</li>
+</ul>
+</li>
+<li><p>第三层——核心元素：</p>
+<ul>
+<li><p>policy(策略)：</p>
+</li>
+<li><p>value(价值)：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><mark>注意</mark>：在北京大学ai基础的课程ppt中，各个元素的分类与上面不同！课程中规定，**<u>环境包括初始状态、当前玩家、动作、状态转移、终止状态、奖励；策略π和目标依附于agent之下</u>**。</p>
+<p>这种层级分类会在下面用例子解释，同时额外提到的状态转移、终止状态也在下面解释。<del>所以不知道是啥暂时不用慌</del>。</p>
+<h2 id="简单的强化学习问题建模"><a href="#简单的强化学习问题建模" class="headerlink" title="简单的强化学习问题建模"></a>简单的强化学习问题建模</h2><p>以井字棋问题为例：</p class='item-img' data-src='file:///C:/Users/10195/AppData/Roaming/marktext/images/2024-05-22-21-39-15-image.png'><img title="" src="file:///C:/Users/10195/AppData/Roaming/marktext/images/2024-05-22-21-39-15-image.png" alt="" width="274">
+
+<p>        首先，在强化学习中，我们会假设敌人用的是确定性策略<mark>(未必最优，这一点与前面的minmax不同！)</mark>，并且我们可以和敌人下很多次。</p>
+<p>        我们的基本思想就是，在和敌人的不断对弈中逐步得到一个好的对敌策略。</p>
+<p>        然后我们来分析这个问题中，各个元素具体都是什么(采用ppt中的结构)：</p>
+<h3 id="分析模型中的元素"><a href="#分析模型中的元素" class="headerlink" title="分析模型中的元素"></a>分析模型中的元素</h3><p><strong>环境：</strong></p>
+<ul>
+<li><p>1、初始状态s0：空棋盘；</p>
+</li>
+<li><p>2、当前玩家：轮到下子的一方（也可以把对手建模在环境里，每次状态<br>转移返回的状态是对手已经落子后的状态，这样游戏就是单人游戏）；</p>
+</li>
+<li><p>3、动作A：落子到当前为空的位置；</p>
+</li>
+<li><p>4、状态转移P：某个状态下，agent采取某个动作后，转移到下一状态的状态转移模型。定义可能到达的所有状态构成了状态空间(state space)，所有状态下可行动作，构成动作空间(action space)。在这个问题中，状态转移是落子之后的棋盘状态；</p>
+</li>
+<li><p>5、终止状态：棋盘满或者一方获胜。（与目标不同！输了也算终止状态，但是不是我们的目标）</p>
+</li>
+<li><p>6、奖励R：终止状态，胜者+1，负者-1，战平双方均为0；下棋过程中的其它状态为0；</p>
+</li>
+</ul>
+<p><strong>智能体：</strong></p>
+<ul>
+<li><p>策略π：使用状态估值表，即对于每个状态，记录从该状态出发下到终局的胜率。然后根据状态估值表选择动作；</p>
+<ul>
+<li><p>学习策略π1：大概率选择估值最高的下一个状态，小概率随机选一个动作（探索）；</p>
+</li>
+<li><p>目标策略π*：每次选择通往估值最高的下一个状态（贪心）</p>
+</li>
+<li><p>（上面两种策略会在后面“多臂老虎机”那里细说）</p>
+</li>
+</ul>
+</li>
+<li><p>目标（问题的解）：</p>
+<ul>
+<li>即找到最优策略π*，使得智能体从初始状态 S下到最终的效率&#x2F;胜率最⼤</li>
+</ul>
+</li>
+</ul>
+<h3 id="利用模型开始训练"><a href="#利用模型开始训练" class="headerlink" title="利用模型开始训练"></a>利用模型开始训练</h3><p>        上面我们分析了，想让agent胜率变大我们就得找到更好的策略，从而我们就得有一个更好的状态估值表。这个估值表可以是根据前人经验得出（比如黑白棋就有一个估值表。其实人从棋谱上学习的时候，也可以看作是学一个状态估值表），也可以通过不断的试错学习（trail and error)，让agent自己去算出来。</p>
+<p>        这两种得到估值表的方式称为exploitation &amp; exploration。前者是“利用”前人总结好的估值表，后者是自己“探索”一个最佳的估值表。exploitation和exploration之间的权衡是强化学习中的一个核心问题。以围棋为例，AlphaGo常常喜欢下在一些，人类不会去下的地方，因为人类通过几千年的经验总结出来的“估值表”会认为那里价值不高，而AlphaGo通过自己的强化学习，会认为这一行动具有的价值很高。</p>
+<p>        我们回归正题，继续研究井字棋问题，并在其中深化对exploitation &amp; exploration的认识。学习估值表分为以下三个步骤：</p>
+<p><strong>第一步：初步建立状态估值表（值函数表）</strong></p>
+<p>        对于井字棋而言，因为状态数少（状态空间小)，可用表格存下估值。我们让每个状态对应一个估值，估值表示这个状态到最终的胜率。</p>
+<p>        根据游戏规则，我们先给表设定一个初值：</p>
+<ul>
+<li><p>三个X连成⼀线的状态，价值为1，因为我们已经赢了；</p>
+</li>
+<li><p>三个O连成⼀线的状态，价值为0，因为我们已经输了；</p>
+</li>
+<li><p>其他状态的值都为0.5，表示有50%的概率能赢。</p>
+</li>
+</ul>
+<p><strong>第二步：和对手玩很多次</strong></p>
+<p>（后面的还在写，都是鸣潮害了我）</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/05/16/%E5%B1%80%E9%83%A8%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">局部优化算法 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">浅若清风</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%94%9F%E7%89%A9%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">强化学习的生物学基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">强化学习的模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%89%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">强化学习的三层结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%BB%BA%E6%A8%A1"><span class="toc-number">2.2.</span> <span class="toc-text">简单的强化学习问题建模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.1.</span> <span class="toc-text">分析模型中的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%A7%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">利用模型开始训练</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
