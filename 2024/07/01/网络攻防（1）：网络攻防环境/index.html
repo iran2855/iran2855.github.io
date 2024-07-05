@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>网络攻防（1）：网络攻防环境 | jp's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link rel="stylesheet" href="//unpkg.com/@waline/client@v2/dist/waline.css"><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async type="module">import { init } from '//unpkg.com/@waline/client@v2/dist/waline.mjs';
+window.waline = init;
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://waline-for-blog-xi.vercel.app',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);document.addEventListener('pjax:success', _ => bszCaller.fetch(
+ "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", a => {
+  bszTag.texts(a),
+  bszTag.shows()
+}));reset()})</script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://waline-for-blog-xi.vercel.app',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.2.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>网络攻防（1）：网络攻防环境</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-07-01T10:20:49.000Z" id="date"> 2024-07-01</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-07-05T14:21:04.054Z" id="updated"> 2024-07-05</time></div></span><br><span>文章总字数: <div class="control">919</div></span><br><span>预计阅读时间: <div class="control">3 分钟</div></span><br><span id="busuanzi_container_page_pv">页面浏览: <span class="control" id="busuanzi_value_page_pv">加载中...</span></span></div></div><hr><div id="post-content"><h1 id="1-1-环境构成"><a href="#1-1-环境构成" class="headerlink" title="1.1 环境构成"></a>1.1 环境构成</h1><p>一个基本的网络攻防实验环境包括：靶机、攻击机、入侵检测分析系统、网络连接四部分组成。</p>
+<p>一个基础的网络攻防实验环境需要如下组成部分：</p>
+<p class='item-img' data-src='E:\Hexo\source\images\图1-1.jpg'><img src="E:\Hexo\source\images\图1-1.jpg"></p>
+<h2 id="1-1-1-靶机"><a href="#1-1-1-靶机" class="headerlink" title="1.1.1 靶机"></a>1.1.1 靶机</h2><ul>
+<li><p>靶机：包含系统和应用程序漏洞，并作为攻击目标的主机博客中将采用metasploitable镜像</p>
+</li>
+<li><p>metasploitable是一个漏洞百出的机器，开了一些陈旧的服务，但现在还在开着，所以被用来当靶机</p>
+</li>
+</ul>
+<h2 id="1-1-2-攻击机"><a href="#1-1-2-攻击机" class="headerlink" title="1.1.2 攻击机"></a>1.1.2 攻击机</h2><ul>
+<li><p>攻击机：用于发起网络攻击的主机，常用kali</p>
+</li>
+<li><p>kali是搞渗透测试的专用平台。它是基于Debian的Linux发行版（和ubuntu是兄弟关系），设计用于数字取证操作系统</p>
+<ul>
+<li>kali集成了超过300个渗透测试工具，继承自BackTrack，并发扬光大</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-3-IDS-IPS"><a href="#1-1-3-IDS-IPS" class="headerlink" title="1.1.3 IDS&#x2F;IPS"></a>1.1.3 IDS&#x2F;IPS</h2><p>即攻击检测、分析、与防御平台：</p>
+<ul>
+<li><p>IDS：入侵检测系统</p>
+<ul>
+<li><p>IDS在交换式网络中的位置一般选择为：（1）尽可能靠近攻击源；（2）尽可能靠近受保护资源</p>
+</li>
+<li><p>部署位置：Internet接入路由器之后的第一台交换机上</p>
+</li>
+</ul>
+</li>
+<li><p>IPS：入侵防御系统</p>
+<ul>
+<li>办公网与外部网络的连接部位（入口&#x2F;出口），简单地说就是网关</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-5-网络连接"><a href="#1-1-5-网络连接" class="headerlink" title="1.1.5 网络连接"></a>1.1.5 网络连接</h2><ul>
+<li><p>网络连接：通过网络将靶机、攻击机和具备检测分析防御功能的网关进行连接</p>
+<ul>
+<li>e.g. 交换机、网关等</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-2-kali-linux"><a href="#1-2-kali-linux" class="headerlink" title="1.2 kali linux"></a>1.2 kali linux</h1><p><strong>相关介绍：</strong></p>
+<ul>
+<li><p>kali是一个基于Debian的Linux发行版，它继承了300多个安全和取证方面的相关工具，专为渗透测试人员准备</p>
+</li>
+<li><p>kali的前身是BackTrack Linux发行版，这是基于Ubuntu的一个linux发行版</p>
+</li>
+<li><p>Kali Linux有 32 位和 64 位的镜像，可用于 x86指令集。同时它还有基于 ARM架构的镜像，可用于树莓派和三星的 ARM Chromebook。用户可通过硬盘、Live CD 或 Live USB 来运行 Kali Linux 操作系统</p>
+</li>
+<li><p>kali和ubuntu的区别：kali自带很多渗透测试工具，ubuntu自己手动下载这些工具后，也能“成为”kali。<del>不过自己下很麻烦</del></p>
+</li>
+</ul>
+<h2 id="1-2-1-kali的安装与登录"><a href="#1-2-1-kali的安装与登录" class="headerlink" title="1.2.1 kali的安装与登录"></a>1.2.1 kali的安装与登录</h2><p>[安装教程视频](【全网kali安装详细教程！！！（附安装包）】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n84y1874K/?share_source=copy_web&vd_source=cec52004969256505da493118ce14ba2">https://www.bilibili.com/video/BV1n84y1874K/?share_source=copy_web&amp;vd_source=cec52004969256505da493118ce14ba2</a>)</p>
+<p>默认用户名：root</p>
+<p>        密码：toor</p>
+<h2 id="1-2-2-kali的基本设置"><a href="#1-2-2-kali的基本设置" class="headerlink" title="1.2.2 kali的基本设置"></a>1.2.2 kali的基本设置</h2><p>安装好kali，就可以登录到系统了。登录系统后，就可以使用各种的渗透工具对计算机做测试。为了方便后面章节内容的学习，我们还需要介绍-下 Kali Linux的基本设置。</p>
+<ul>
+<li><p>启动默认的服务</p>
+<p>Kali Linux 自带了几个网络服务，它们是非常有用的。但是默认是禁用的。在这里，将介绍使用各种方法设置并启动每个服务</p>
+</li>
+<li><p>启动 <strong>Secure Shell (SSH) 服务</strong></p>
+<ul>
+<li><p>执行如下命令以启动SSH服务</p>
+<p>临时启动：<code>systemctl start ssh.service</code></p>
+<p>开机自启动：<code>systemctl enavle ssh</code></p>
+</li>
+<li><p>可以用systemclt查看ssh的状态</p>
+<p><code>systemctl status ssh.service</code></p>
+</li>
+<li><p>为了确认服务的端口是否被监听，执行如下命令</p>
+<p><code>netstat -apn | grep &quot;:22&quot;</code></p>
+</li>
+</ul>
+</li>
+<li><p>允许root用户远程连接</p>
+<ul>
+<li><p>打开配置文件</p>
+<p><code>vim /etc/ssh/sshd_config</code></p>
+</li>
+<li><p>在里面找到一行：<code>PermitRootLogin prohibit-password</code></p>
+</li>
+<li><p>修改为：<code>PermitRootLogin yes</code></p>
+</li>
+<li><p>修改完还要重启一下ssh服务：<code>systemctl restart ssh</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>设置完成之后，我们可以在主机上，用<code>ssh root@</code>后面+kali的ip地址，即可在主机上远程用命令行来操作kali</p>
+<p>但是如果一直用虚拟机进行命令那开不开无所谓，推荐开一下</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/07/05/new/">← 下一篇 new</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/05/20/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习 上一篇 →</a></div></div></div><div id="comments"><div id="waline"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">浅若清风</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83%E6%9E%84%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">1.1 环境构成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-1-%E9%9D%B6%E6%9C%BA"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.1 靶机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-2-%E6%94%BB%E5%87%BB%E6%9C%BA"><span class="toc-number">1.2.</span> <span class="toc-text">1.1.2 攻击机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-3-IDS-IPS"><span class="toc-number">1.3.</span> <span class="toc-text">1.1.3 IDS&#x2F;IPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-5-%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.4.</span> <span class="toc-text">1.1.5 网络连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-kali-linux"><span class="toc-number">2.</span> <span class="toc-text">1.2 kali linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-1-kali%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E7%99%BB%E5%BD%95"><span class="toc-number">2.1.</span> <span class="toc-text">1.2.1 kali的安装与登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2-kali%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.2 kali的基本设置</span></a></li></ol></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
