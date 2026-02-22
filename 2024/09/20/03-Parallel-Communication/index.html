@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>03-Parallel Communication | jp's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link rel="stylesheet" href="//unpkg.com/@waline/client@v2/dist/waline.css"><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async type="module">import { init } from '//unpkg.com/@waline/client@v2/dist/waline.mjs';
+window.waline = init;
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://waline-for-blog-xi.vercel.app',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);document.addEventListener('pjax:success', _ => bszCaller.fetch(
+ "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", a => {
+  bszTag.texts(a),
+  bszTag.shows()
+}));reset()})</script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://waline-for-blog-xi.vercel.app',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.2.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>03-Parallel Communication</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-09-20T08:00:41.000Z" id="date"> 2024-09-20</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-09-24T10:55:58.990Z" id="updated"> 2024-09-24</time></div></span><br><span>Word Count: <div class="control">706</div></span><br><span>Read Time: <div class="control">2 min</div></span><br><span id="busuanzi_container_page_pv">Page View: <span class="control" id="busuanzi_value_page_pv">loading...</span></span></div></div><hr><div id="post-content"><p>首先明确，kernel是在GPU上运行的特殊函数，每个thread是执行kernel的基本单位，block是thread的集合，grid是block的集合。而以上概念都是逻辑和抽象的，在硬件级别上没有直接对应的实体，但它们与硬件的实际执行密切相关，并由硬件特性和架构直接支持。</p>
+<p>下面来介绍相关的硬件支持：</p>
+<ul>
+<li><p>GPU core&#x2F;Cuda core：GPU最基本的处理单元，GPU的cores负责执行threads。</p>
+</li>
+<li><p>SM(Streaming MultiProcessor)：一个SM由多个core组成，每个SM根据GPU架构不同有不同数量的core。SM还包括共享内存(shared memory)，寄存器文件(Register File)等，这就解释了为什么shared memory</p>
+</li>
+</ul>
+<p>直观感受如图：</p class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-09-20-19-29-26-image.png'><img title="" src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-09-20-19-29-26-image.png" alt="" width="625">
+
+<p>注意：</p>
+<ul>
+<li><p>1、一个block一定全在一个SM上，但是一个SM上可以运行多个block</p>
+</li>
+<li><p>2、定义block是程序员在code中做的，而GPU负责的是把blocks分配到SMs上</p>
+</li>
+<li><p>3、thread是并行运行的，而为了保证程序运行的效率、简易性、规模性，cuda对于thread blocks运行的时间和位置几乎不做保险。</p>
+</li>
+<li><p>4、一般而言，block之间没有交流。这会导致dead lock的发生（dead lock：如果一组进程中的每个进程都在等待一个事件，而这个事件只能由该组中的另一个进程触发，这种情况会导致死锁）</p>
+</li>
+</ul>
+<p>我们将在下面的代码中，验证block的并行运行：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function">__global__ <span class="hljs-type">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello world! I&#x27;m a thread&quot;</span><br>        <span class="hljs-string">&quot;in block %d\n&quot;</span>, blockIdx.x);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc,<span class="hljs-type">char</span> **argv)</span> </span>&#123;<br>    <span class="hljs-comment">// launch the kernel</span><br>    hello&lt;&lt;&lt;<span class="hljs-number">16</span>, <span class="hljs-number">1</span>&gt;&gt;&gt;();<br><br>    <span class="hljs-comment">// !!! force the printf()s to flush</span><br>    <span class="hljs-built_in">cudaDeviceSynchronize</span>();<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;That&#x27;s all!\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>理论上，运行后会出现16！种结果，因为16个threads一起运行，哪个先结束不确定</p>
+<blockquote>
+<p>cudaDeviceSynchronize()的作用：阻塞主机线程，让host等待直到设备上所有先前的 CUDA 操作完成。这对于确保 GPU 上的计算结果在继续执行后续代码前已准备好非常重要，尤其是在主机需要读取设备数据时。</p>
+</blockquote>
+<p>然而，在目前的cuda规则下，thread不是“完全”并行的。先来看下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function">__global__ <span class="hljs-type">void</span> <span class="hljs-title">hello</span><span class="hljs-params">(<span class="hljs-type">float</span> f)</span> </span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello world! I&#x27;m thread &quot;</span><br>    <span class="hljs-string">&quot;%d, f=%f\n&quot;</span>, threadIdx.x, f);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc,<span class="hljs-type">char</span> **argv)</span> </span>&#123;<br>    <span class="hljs-comment">// launch the kernel</span><br>    hello&lt;&lt;&lt;<span class="hljs-number">1</span>, <span class="hljs-number">256</span>&gt;&gt;&gt;(<span class="hljs-number">1.2345f</span>);<br><br>    <span class="hljs-comment">// force the printf()s to flush</span><br>    <span class="hljs-built_in">cudaDeviceSynchronize</span>();<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;That&#x27;s all!\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>课上运行代码结果为</p class='item-img' data-src='file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-09-21-09-39-03-image.png'><img src="file:///C:/Users/jp/AppData/Roaming/marktext/images/2024-09-21-09-39-03-image.png" title="" alt="" width="301">
+
+<p>由此可见，不是完全随机，而是作为以一个整体随机排列，在一个“整体”的内部是有序排列的。这个“整体”我们称之为线程束（wrap）。</p>
+<p>但我们仍保守地认为thread与thread之间是并行的</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2026/02/22/hello-world/">← Next Hello World</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/07/05/new/">new Prev →</a></div></div></div><div id="comments"><div id="waline"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">浅若清风</a></h1><div id="description"><p></p></div></div><div id="aside-block"></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
